@@ -1,0 +1,38 @@
+@prefix rdf:http://www.w3.org/1999/02/22-rdf-syntax-ns# .
+@prefix xsd:https://www.w3.org/2001/XMLSchema# .
+@prefix rdfs:https://www.w3.org/2000/01/rdf-schema# .
+@prefix indodax:https://indodax.com/market .
+@prefix schema:https://schema.org/ .
+@prefix dbo:https://dbpedia.org/ontology/ .
+@prefix wk:https://lod-cloud.net/dataset/wiki/ .
+
+indodax:Market a rdfs:Class .
+indodax:BTC rdfs:SubClassof schema:Offer .
+
+indodax:Price a rdf:Property .
+indodax:Price rdfs:domain indodax:Market .
+indodax:Price rdfs:range xsd:string schema:Offer .
+
+indodax:Vol24h a rdf:Property .
+indodax:Vol24h rdfs:domain indodax:Market .
+indodax:Vol24h rdfs:range xsd:string schema:Offer.
+
+indodax:PercentChange a rdf:Property .
+indodax:PercentChange rdfs:domain indodax:Market .
+indodax:PercentChange rdfs:range xsd:string schema:Offer.
+
+indodax:Bitcoin a indodax:Market;
+indodax:Bitcoin indodax:Price “812.498.000“^^xsd:Integer;
+indodax:Bitcoin indodax:market indodax:BTC .
+owl:sameAs wk:Cryptocurrency .
+
+indodax:Bitcoin a indodax:Vol24h;
+indodax:Bitcoin indodax:Vol24h “75,1bn“^^xsd:string;
+indodax:Bitcoin indodax:Vol24h indodax:BTC ;
+owl:sameAs wk:Cryptocurrency .
+
+
+indodax:Bitcoin a indodax:PercentChange;
+indodax:Bitcoin indodax:PercentChange “0.88%“^^xsd:string;
+indodax:Bitcoin indodax:PercentChange indodax:BTC ;
+owl:sameAs dbo:currencyCode .

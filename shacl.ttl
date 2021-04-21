@@ -1,0 +1,29 @@
+@prefix rdf:http://www.w3.org/1999/02/22-rdf-syntax-ns# .
+@prefix xsd:https://www.w3.org/2001/XMLSchema# .
+@prefix rdfs:https://www.w3.org/2000/01/rdf-schema# .
+@prefix indodax:https://indodax.com/market .
+@prefix schema:https://schema.org/ .
+@prefix dbo:https://dbpedia.org/ontology/ .
+@prefix wk:https://lod-cloud.net/dataset/wiki/ .
+
+indodax:MarketShape 
+	a  sh:NodeShape ;
+	sh:targetClass indodax:Market ;
+	sh:property [
+		sh:path indodax:Price ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:string ;
+		sh:node schema:Offer ;
+		] ;
+		sh:property [
+		sh:path indodax:PercentChange ;
+		sh:datatype xsd:string ;
+		sh:node schema:Offer ;
+		] ;
+schema:Offer 
+	a sh:MarketShape ;
+	sh:targetClass indodax:Market ;
+	sh:property [
+		sh:path schema:name ;
+		sh:datatype xsd:string ;
+	] .
